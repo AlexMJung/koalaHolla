@@ -27,10 +27,17 @@ function getKoalas(){
   console.log( 'in getKoalas' );
   // ajax call to server to get koalas
   $.ajax({
-    url: '/koalas',
     type: 'GET',
-    success: function( data ){
-      console.log( 'got some koalas: ', data );
+    url: '/koalas',
+    success: function( response){
+      console.log( 'got some koalas: ', response );
+      $('#viewKoalas').prepend(
+        '<tr><td>' + response.name + '</td>' +
+        '<td>' + response.age + '</td>' +
+        '<td>' + response.gender + '</td>' +
+        '<td>' + response.ready_for_transfer + '</td>' +
+        '<td>' + response.notes + '</td><tr>'
+      )//end of prepend
     } // end success
   }); //end ajax
   // display on DOM with buttons that allow edit of each
