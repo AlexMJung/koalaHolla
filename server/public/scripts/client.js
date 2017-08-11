@@ -8,18 +8,15 @@ $( document ).ready( function(){
   // add koala button click
   $( '#addButton' ).on( 'click', function(){
     console.log( 'in addButton on click' );
-    // get user input and put in an object
-    // NOT WORKING YET :(
-    // using a test object
-    var objectToSend = {
-      name: 'testName',
-      age: 'testName',
-      gender: 'testName',
-      readyForTransfer: 'testName',
-      notes: 'testName',
+    var newKoala = {
+      name: $('#nameIn').val(),
+      age: $('#ageIn').val(),
+      gender: $('#genderIn').val(),
+      readyForTransfer: $('#readyForTransferIn').val(),
+      notes: $('#notesIn').val()
     };
     // call saveKoala with the new obejct
-    saveKoala( objectToSend );
+    saveKoala( newKoala );
   }); //end addButton on click
 }); // end doc ready
 
@@ -53,8 +50,8 @@ function saveKoala( newKoala ){
     url: '/koalas',
     type: 'POST',
     data: newKoala,
-    success: function( data ){
-      console.log( 'got some koalas: ', data );
+    success: function( response){
+      console.log( 'got some koalas: ', response );
     } // end success
   }); //end ajax
 }
