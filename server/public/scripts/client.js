@@ -12,7 +12,7 @@ $( document ).ready( function(){
       name: $('#nameIn').val(),
       age: $('#ageIn').val(),
       gender: $('#genderIn').val(),
-      readyForTransfer: $('#readyForTransferIn').val(),
+      ready_for_transfer: $('#readyForTransferIn').val(),
       notes: $('#notesIn').val()
     };
     // call saveKoala with the new obejct
@@ -52,6 +52,7 @@ function saveKoala( newKoala ){
     data: newKoala,
     success: function( response){
       console.log( 'got some koalas: ', response );
+      getKoalas();
     } // end success
   }); //end ajax
 }
