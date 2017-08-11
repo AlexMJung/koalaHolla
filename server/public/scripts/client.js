@@ -52,7 +52,12 @@ function saveKoala( newKoala ){
     data: newKoala,
     success: function( response){
       console.log( 'got some koalas: ', response );
+      clearKoala();
       getKoalas();
     } // end success
   }); //end ajax
+}
+
+function clearKoala(){
+  $('#viewKoalas').empty();
 }
