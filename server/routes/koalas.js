@@ -21,4 +21,4 @@ router.get('/', function(req, res){
     })//end of pool
 })//router.get
 
-module.exports = router
+module.exports = router;

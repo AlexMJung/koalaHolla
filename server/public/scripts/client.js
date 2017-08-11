@@ -31,13 +31,16 @@ function getKoalas(){
     url: '/koalas',
     success: function( response){
       console.log( 'got some koalas: ', response );
+      for (var i = 0; i < response.length; i++) {
+        var koalaKnapper = response[i];
       $('#viewKoalas').prepend(
-        '<tr><td>' + response.name + '</td>' +
-        '<td>' + response.age + '</td>' +
-        '<td>' + response.gender + '</td>' +
-        '<td>' + response.ready_for_transfer + '</td>' +
-        '<td>' + response.notes + '</td><tr>'
+        '<tr><td>' + koalaKnapper.name + '</td>' +
+        '<td>' + koalaKnapper.age + '</td>' +
+        '<td>' + koalaKnapper.gender + '</td>' +
+        '<td>' + koalaKnapper.ready_for_transfer + '</td>' +
+        '<td>' + koalaKnapper.notes + '</td><tr>'
       )//end of prepend
+      }//end of for loop
     } // end success
   }); //end ajax
   // display on DOM with buttons that allow edit of each
